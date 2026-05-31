@@ -1,0 +1,11 @@
+services:
+  docker-check:
+    # Безопасность
+    security_opt: ["no-new-privileges:true"]
+    tmpfs: ["/tmp:rw,noexec,nosuid"]
+    # Настройки контейнера
+    container_name: docker-check
+    image: aligotr/docker-check:latest
+    restart: no
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
